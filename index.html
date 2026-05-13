@@ -154,16 +154,21 @@
   .hero-right {
     position: relative;
     height: 100vh;
-    background: var(--cream);
     overflow: hidden;
     display: flex; align-items: flex-end;
   }
 
+  .hero-right-bg {
+    position: absolute; inset: 0;
+    background-image: url('event-hero.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    filter: brightness(0.55) saturate(0.85);
+  }
+
   .hero-pattern {
     position: absolute; inset: 0;
-    background-image:
-      radial-gradient(circle at 30% 20%, rgba(139,26,47,0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(232,213,208,0.6) 0%, transparent 45%);
+    background: linear-gradient(to top, rgba(14,13,12,0.85) 0%, rgba(14,13,12,0.1) 60%, transparent 100%);
   }
 
   .hero-stats {
@@ -180,14 +185,14 @@
     font-family: 'Playfair Display', serif;
     font-size: 42px;
     font-weight: 600;
-    color: var(--ink);
+    color: #fff;
     line-height: 1;
   }
   .stat-label {
     font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--ink-faint);
+    color: rgba(255,255,255,0.5);
     margin-top: 6px;
   }
 
@@ -198,7 +203,7 @@
     font-style: italic;
     font-size: 18px;
     font-weight: 400;
-    color: var(--ink-muted);
+    color: rgba(255,255,255,0.82);
     line-height: 1.5;
   }
 
@@ -349,6 +354,17 @@
     color: var(--ink-muted);
     line-height: 1.65;
   }
+
+  .work-card-img {
+    width: calc(100% + 64px);
+    margin: -36px -32px 24px;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.9);
+    transition: filter 0.3s;
+  }
+  .work-card:hover .work-card-img { filter: saturate(1.1); }
 
   .work-card-arrow {
     margin-top: 24px;
@@ -501,6 +517,7 @@
     </div>
   </div>
   <div class="hero-right">
+    <div class="hero-right-bg"></div>
     <div class="hero-pattern"></div>
     <p class="hero-quote">"Danielle is an incredible storyteller who demonstrates a strong affinity for 'the customer.'"<br><small style="font-size:13px; font-style:normal; letter-spacing:0.05em; opacity:0.6">— Asma Stephan, Head of Content / Samsara</small></p>
     <div class="hero-stats">
@@ -560,6 +577,7 @@
   <div class="portfolio-grid">
 
     <a href="https://www.marqeta.com/blog/built-in-best-places-to-work" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://images.ctfassets.net/wqi8u1luxsv0/ruknG3nD8ekzOGdqiEKKF/908eb096204a0580d9ff246d76c35fee/MQTUS310-Built-In-Awards_Social-B-scaled.jpeg?w=800" alt="Built In Best Places to Work">
       <div class="work-card-meta">
         <span class="work-tag">Employer Brand</span>
         <span class="work-date">Jan 2023</span>
@@ -570,6 +588,7 @@
     </a>
 
     <a href="https://www.marqeta.com/blog/afrotech-2022" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://images.ctfassets.net/wqi8u1luxsv0/Lmb4U3vdAI6kCMRAbKlu0/dc806ef969953af4652f3c8f206f644f/Afrotech_2022.png?w=800" alt="AfroTech 2022">
       <div class="work-card-meta">
         <span class="work-tag">Events + DEI</span>
         <span class="work-date">Nov 2022</span>
@@ -580,6 +599,7 @@
     </a>
 
     <a href="https://www.marqeta.com/blog/flexible-first" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://images.ctfassets.net/wqi8u1luxsv0/4wbVcu9zpZRAqScXSG5ga9/9072ed8c348819071e6b72fb6a8536be/Flexible-First-Policy-Blog.jpeg?w=800" alt="Flexible First Policy">
       <div class="work-card-meta">
         <span class="work-tag">Internal Comms</span>
         <span class="work-date">May 2022</span>
@@ -590,6 +610,7 @@
     </a>
 
     <a href="https://www.samsara.com/careers" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://static.wixstatic.com/media/3734d3_6fe11b6fbb744e1fbc306766f5baf5fc~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Samsara Careers">
       <div class="work-card-meta">
         <span class="work-tag">Brand Build</span>
         <span class="work-date">Apr 2020</span>
@@ -600,6 +621,7 @@
     </a>
 
     <a href="https://www.samsara.com/blog/tools-for-operating-fleets-during-covid-19" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://static.wixstatic.com/media/3734d3_fba3824485a34da486890736a56d0d99~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Operating Fleets During COVID-19">
       <div class="work-card-meta">
         <span class="work-tag">Content</span>
         <span class="work-date">Mar 2020</span>
@@ -610,6 +632,7 @@
     </a>
 
     <a href="https://vimeo.com/390562769" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://static.wixstatic.com/media/3734d3_2f84cd36edb24d0b87a31b0826c5988f~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Samsara 2020 Kickoff">
       <div class="work-card-meta">
         <span class="work-tag">Events + Video</span>
         <span class="work-date">Feb 2020</span>
@@ -620,6 +643,7 @@
     </a>
 
     <a href="https://www.eventbrite.com/e/shipping-the-future-building-a-direct-to-consumer-brand-registration-42657971140?aff=efbneb" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://static.wixstatic.com/media/3734d3_659fa920badb4a1397d6411481d878cd~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Shipping the Future Panel">
       <div class="work-card-meta">
         <span class="work-tag">Events</span>
         <span class="work-date">Feb 2018</span>
@@ -630,6 +654,7 @@
     </a>
 
     <a href="https://www.instagram.com/airtable/?hl=en" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://static.wixstatic.com/media/3734d3_1bdf7b88d4fd42da9837b4402a4d0025~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Airtable Instagram">
       <div class="work-card-meta">
         <span class="work-tag">Social + Brand</span>
         <span class="work-date">Jan 2019</span>
@@ -640,6 +665,7 @@
     </a>
 
     <a href="https://applications.contrary.com/" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://static.wixstatic.com/media/3734d3_0c419820b20640d38716372dbedd859b~mv2.jpeg/v1/fill/w_800,h_413,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg" alt="Contrary Fellowship">
       <div class="work-card-meta">
         <span class="work-tag">Program Leadership</span>
         <span class="work-date">Oct 2021</span>
@@ -650,6 +676,7 @@
     </a>
 
     <a href="https://www.talentbrand.org/blog/2020/7/27/tools-tech-and-talent-brand" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://static.wixstatic.com/media/3734d3_58dc45ae512045f28cd9cb1610c16291~mv2.jpg/v1/fill/w_800,h_413,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg" alt="Tools Tech and Talent Brand">
       <div class="work-card-meta">
         <span class="work-tag">Speaking + Content</span>
         <span class="work-date">Jul 2020</span>
@@ -660,6 +687,7 @@
     </a>
 
     <a href="https://medium.com/samsara-engineering/samsara-dev-spotlight-eileen-zhong-696bfe2c4e88" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://static.wixstatic.com/media/3734d3_7bc5305cdabe4b468452b3819561a77a~mv2.jpeg/v1/fill/w_800,h_413,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg" alt="Samsara Dev Spotlight">
       <div class="work-card-meta">
         <span class="work-tag">Internal Comms</span>
         <span class="work-date">Jan 2020</span>
@@ -670,6 +698,7 @@
     </a>
 
     <a href="https://blog.airtable.com/achieve-your-new-years-goals/" target="_blank" class="work-card">
+      <img class="work-card-img" src="https://static.wixstatic.com/media/3734d3_1e893a6935bc4fc19bf148a594989337~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Airtable New Year Goals">
       <div class="work-card-meta">
         <span class="work-tag">Content</span>
         <span class="work-date">Dec 2018</span>
@@ -745,7 +774,7 @@
 </section>
 
 <footer>
-  <span>© 2025 Danielle Frider</span>
+  <span>© 2026 Danielle Frider</span>
   <span>San Francisco, CA</span>
 </footer>
 
