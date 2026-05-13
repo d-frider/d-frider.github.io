@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danielle Frider — Internal Events Producer</title>
+<meta name="description" content="Danielle Frider is a San Francisco-based internal events producer and communications strategist with a decade of experience at Airtable, Samsara, Marqeta, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #EAF4F2;
+    --warm-white: #F7FDFC;
+    --ink: #0D2B28;
+    --ink-muted: #3D6660;
+    --ink-faint: #7AABA5;
+    --accent: #E8453C;
+    --accent-light: #FDDEDD;
+    --teal: #0C7A6E;
+    --teal-vivid: #0FA896;
+    --border: rgba(13,43,40,0.13);
+    --nav-h: 72px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    background: rgba(247,253,252,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    padding-top: var(--nav-h);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .hero-left {
+    padding: 6vw 4vw 6vw 8vw;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 68px);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--ink-muted);
+    font-weight: 300;
+    max-width: 420px;
+    margin: 24px 0 40px;
+    line-height: 1.65;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px;
+    background: var(--ink);
+    color: var(--warm-white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px;
+    border: 1px solid var(--border);
+    color: var(--ink-muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-right {
+    position: relative;
+    height: 100vh;
+    background: var(--cream);
+    overflow: hidden;
+    display: flex; align-items: flex-end;
+  }
+
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 30% 20%, rgba(15,168,150,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(232,69,60,0.10) 0%, transparent 45%);
+  }
+
+  .hero-stats {
+    position: relative;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .stat-block { }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 6px;
+  }
+
+  .hero-quote {
+    position: absolute;
+    top: 40px; left: 48px; right: 48px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  /* ── SECTION SHELLS ── */
+  section { padding: 100px 8vw; }
+  section:nth-child(even) { background: var(--cream); }
+
+  .section-header {
+    display: flex; align-items: baseline; gap: 20px;
+    margin-bottom: 64px;
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── ABOUT ── */
+  #about .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-portrait {
+    position: relative;
+  }
+  .about-portrait img {
+    width: 100%;
+    display: block;
+    filter: sepia(10%) contrast(1.05);
+  }
+  .about-portrait::after {
+    content: '';
+    position: absolute;
+    bottom: -16px; right: -16px;
+    width: 60%; height: 60%;
+    border: 1.5px solid var(--accent);
+    z-index: -1;
+  }
+
+  .about-photo-placeholder {
+    width: 100%;
+    padding-bottom: 130%;
+    background: linear-gradient(135deg, #C5E8E4 0%, #8DCEC8 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .about-photo-placeholder::before {
+    content: 'D F';
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 12px;
+  }
+
+  .about-text p {
+    color: var(--ink-muted);
+    margin-bottom: 24px;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  .about-pills {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-top: 36px;
+  }
+  .pill {
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* ── PORTFOLIO ── */
+  #portfolio .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2px;
+  }
+
+  .work-card {
+    position: relative;
+    background: var(--warm-white);
+    padding: 36px 32px;
+    border: 0.5px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+    overflow: hidden;
+  }
+  .work-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.25s ease;
+  }
+  .work-card:hover { background: var(--cream); }
+  .work-card:hover::before { transform: scaleY(1); }
+
+  .work-card-meta {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+  }
+  .work-tag {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .work-date {
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
+
+  .work-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .work-card p {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+
+  .work-card-arrow {
+    margin-top: 24px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: flex; align-items: center; gap: 8px;
+    transition: color 0.2s, gap 0.2s;
+  }
+  .work-card:hover .work-card-arrow { color: var(--accent); gap: 14px; }
+
+  /* ── REFERENCES ── */
+  #references .refs-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .ref-card {
+    padding: 36px;
+    border-top: 1.5px solid var(--ink);
+  }
+
+  .ref-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .ref-quote::before { content: '\201C'; }
+  .ref-quote::after  { content: '\201D'; }
+
+  .ref-person {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.03em;
+  }
+  .ref-title {
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-top: 4px;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--ink);
+    color: var(--warm-white);
+    text-align: center;
+    padding: 120px 8vw;
+  }
+  #contact h2 { color: var(--warm-white); }
+  #contact .section-num { color: rgba(255,255,255,0.3); }
+
+  .contact-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    max-width: 480px;
+    margin: 24px auto 48px;
+    font-weight: 300;
+  }
+
+  .contact-email {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 36px);
+    color: var(--warm-white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 4px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-email:hover { color: var(--accent-light); border-color: var(--accent); }
+
+  .contact-links {
+    margin-top: 48px;
+    display: flex; justify-content: center; gap: 24px;
+  }
+  .contact-link {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--warm-white); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 0.5px solid rgba(255,255,255,0.08);
+    padding: 24px 8vw;
+    display: flex; justify-content: space-between; align-items: center;
+    color: rgba(255,255,255,0.25);
+    font-size: 12px;
+  }
+
+  /* ── HAMBURGER (mobile) ── */
+  .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
+  .ham span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: all 0.2s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 48px 6vw 40px; }
+    .hero-right { height: 280px; }
+    .hero-quote { font-size: 15px; top: 24px; left: 24px; right: 24px; }
+    .hero-stats { padding: 24px; gap: 20px; }
+    .stat-num { font-size: 32px; }
+    #about .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-portrait::after { display: none; }
+    #references .refs-list { grid-template-columns: 1fr; gap: 24px; }
+    .ham { display: flex; }
+    .nav-links { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--warm-white); flex-direction: column; gap: 0; border-bottom: 1px solid var(--border); }
+    .nav-links.open { display: flex; }
+    .nav-links li a { display: block; padding: 18px 6vw; border-bottom: 0.5px solid var(--border); }
+    section { padding: 72px 6vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#hero" class="nav-logo">Danielle Frider</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#references">References</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="ham" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Internal Events Producer — San Francisco</p>
+    <h1>Experiences<br>People <em>Remember.</em></h1>
+    <p class="hero-sub">I produce internal events and communications programs that build culture, spark connection, and make employees proud to show up — from 50-person offsites to company-wide kickoffs.</p>
+    <div class="hero-ctas">
+      <a href="#portfolio" class="btn-primary">View Work →</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-pattern"></div>
+    <p class="hero-quote">"Danielle is an incredible storyteller who demonstrates a strong affinity for 'the customer.'"<br><small style="font-size:13px; font-style:normal; letter-spacing:0.05em; opacity:0.6">— Asma Stephan, Head of Content / Samsara</small></p>
+    <div class="hero-stats">
+      <div class="stat-block">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years in tech comms</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Brands built</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">250</div>
+        <div class="stat-label">Event tickets sold out</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">6.2K</div>
+        <div class="stat-label">Blog views, top piece</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>About</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-portrait">
+      <div class="about-photo-placeholder">
+        <!-- Replace with: <img src="your-photo.jpg" alt="Danielle Frider"> -->
+      </div>
+    </div>
+    <div class="about-text">
+      <p>Hi, I'm Danielle — a marketer, designer, historian, and quiet observer of the universe.</p>
+      <p>I grew up between Southern California and North Carolina. Today, I reside in not-so-sunny San Francisco. (I still say y'all.) I've lived in both Paris and Tel Aviv, and I travel as often as I can.</p>
+      <p>Over my career I've shaped employer brands, launched careers sites, produced events with thousands of attendees, and built communications programs at some of the most interesting companies in tech — Airtable, Samsara, Marqeta, WeWork, ironSource, and more.</p>
+      <p>Other interests include interior design, vintage cars, typography, cloud watching, and stargazing.</p>
+      <div class="about-pills">
+        <span class="pill">Internal Comms</span>
+        <span class="pill">Events</span>
+        <span class="pill">Employer Brand</span>
+        <span class="pill">Content Strategy</span>
+        <span class="pill">Graphic Design</span>
+        <span class="pill">Copywriting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO ── -->
+<section id="portfolio">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>Portfolio</h2>
+  </div>
+  <div class="portfolio-grid">
+
+    <a href="https://www.marqeta.com/blog/built-in-best-places-to-work" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Employer Brand</span>
+        <span class="work-date">Jan 2023</span>
+      </div>
+      <h3>Built In Best Places to Work — 4 Lists</h3>
+      <p>Earned Marqeta placements including #1 SF Best Midsize Places to Work, #2 SF Best Places to Work, and top-10 nationally.</p>
+      <div class="work-card-arrow">Read more →</div>
+    </a>
+
+    <a href="https://www.marqeta.com/blog/afrotech-2022" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Events + DEI</span>
+        <span class="work-date">Nov 2022</span>
+      </div>
+      <h3>Marqeta at AfroTech — 6 Years Strong</h3>
+      <p>Chronicled Marqeta's six-year commitment to the premier tech and wealth-building platform for the Black community, rooted in community investment.</p>
+      <div class="work-card-arrow">Read more →</div>
+    </a>
+
+    <a href="https://www.marqeta.com/blog/flexible-first" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Internal Comms</span>
+        <span class="work-date">May 2022</span>
+      </div>
+      <h3>Marqeta's Flexible First Future of Work</h3>
+      <p>Communicated Marqeta's new hybrid work policy company-wide, centering employee autonomy and work-life balance.</p>
+      <div class="work-card-arrow">Read more →</div>
+    </a>
+
+    <a href="https://www.samsara.com/careers" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Brand Build</span>
+        <span class="work-date">Apr 2020</span>
+      </div>
+      <h3>Samsara Careers Site — Built from Scratch</h3>
+      <p>Partnered with the CEO and VP HR to define an EVP, directed photo and video shoots across four offices, and launched on Contentful.</p>
+      <div class="work-card-arrow">Visit site →</div>
+    </a>
+
+    <a href="https://www.samsara.com/blog/tools-for-operating-fleets-during-covid-19" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Content</span>
+        <span class="work-date">Mar 2020</span>
+      </div>
+      <h3>Operating Fleets During COVID-19</h3>
+      <p>Fast-turn ghostwritten piece for a Sr. PMM. Top read on the Samsara blog for 6 weeks running — 6,200+ views.</p>
+      <div class="work-card-arrow">Read more →</div>
+    </a>
+
+    <a href="https://vimeo.com/390562769" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Events + Video</span>
+        <span class="work-date">Feb 2020</span>
+      </div>
+      <h3>Samsara 2020 Kickoff Celebration Video</h3>
+      <p>Repurposed event footage into an employee-shareable talent brand video. 2,700+ views, widely shared across personal networks.</p>
+      <div class="work-card-arrow">Watch →</div>
+    </a>
+
+    <a href="https://www.eventbrite.com/e/shipping-the-future-building-a-direct-to-consumer-brand-registration-42657971140?aff=efbneb" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Events</span>
+        <span class="work-date">Feb 2018</span>
+      </div>
+      <h3>Shipping the Future Panel Series — Shyp</h3>
+      <p>Organized a sold-out 250-ticket live panel. 100 in-person attendees plus 2,000+ livestream viewers for the first event in a three-part series.</p>
+      <div class="work-card-arrow">View event →</div>
+    </a>
+
+    <a href="https://www.instagram.com/airtable/?hl=en" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Social + Brand</span>
+        <span class="work-date">Jan 2019</span>
+      </div>
+      <h3>@airtable on Instagram — Launch & Growth</h3>
+      <p>Launched Airtable's Instagram presence from zero to 3,000 organic followers in 3 months. Used Stories and Highlights to showcase culture for prospects.</p>
+      <div class="work-card-arrow">View profile →</div>
+    </a>
+
+    <a href="https://applications.contrary.com/" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Program Leadership</span>
+        <span class="work-date">Oct 2021</span>
+      </div>
+      <h3>Contrary Fellowship Program</h3>
+      <p>Led the Fellowship for builders tinkering toward category-defining companies — an early-stage community and talent initiative.</p>
+      <div class="work-card-arrow">Learn more →</div>
+    </a>
+
+    <a href="https://www.talentbrand.org/blog/2020/7/27/tools-tech-and-talent-brand" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Speaking + Content</span>
+        <span class="work-date">Jul 2020</span>
+      </div>
+      <h3>Tools, Tech & Talent Brand — TBA Conference</h3>
+      <p>Chronicled a session at the Talent Brand Alliance annual conference, within the employer branding and recruitment marketing space.</p>
+      <div class="work-card-arrow">Read more →</div>
+    </a>
+
+    <a href="https://medium.com/samsara-engineering/samsara-dev-spotlight-eileen-zhong-696bfe2c4e88" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Internal Comms</span>
+        <span class="work-date">Jan 2020</span>
+      </div>
+      <h3>Samsara Dev Spotlights Series</h3>
+      <p>Edited and shepherded a series of employee stories focused on how developers found Samsara and what they're building — in their own words.</p>
+      <div class="work-card-arrow">Read more →</div>
+    </a>
+
+    <a href="https://blog.airtable.com/achieve-your-new-years-goals/" target="_blank" class="work-card">
+      <div class="work-card-meta">
+        <span class="work-tag">Content</span>
+        <span class="work-date">Dec 2018</span>
+      </div>
+      <h3>Airtable Lifestyle Content Series</h3>
+      <p>Three-part series bringing casual users high-quality templates, built on a tentpole calendar co-created with an external PR agency.</p>
+      <div class="work-card-arrow">Read more →</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── REFERENCES ── -->
+<section id="references">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>References</h2>
+  </div>
+  <div class="refs-list">
+
+    <div class="ref-card">
+      <p class="ref-quote">Danielle has an unwavering commitment to excellence; she creates and innovates in ambiguity. Her expertise was integral for a scaling company moving towards a remote, global culture. Danielle would be a value-add to any organization seeking to achieve notable brand success.</p>
+      <div class="ref-person">Stephanie Baysinger</div>
+      <div class="ref-title">Director of Recruiting Operations — Marqeta</div>
+    </div>
+
+    <div class="ref-card">
+      <p class="ref-quote">Danielle is an incredible storyteller who demonstrates a strong affinity for 'the customer.' She has a keen sense of empathy and creates thoughtful strategies to engage them. She is results-driven and strives to make an impact in her work. Managing her was a delight.</p>
+      <div class="ref-person">Asma Stephan</div>
+      <div class="ref-title">Head of Content Marketing — Samsara</div>
+    </div>
+
+    <div class="ref-card">
+      <p class="ref-quote">Danielle is fearless, curious, kind, and resilient. Expect great things. She is an excellent project manager, a keen designer, creative event planner, and relentless when it comes to tracking dollars and cents.</p>
+      <div class="ref-person">Alana Anderson</div>
+      <div class="ref-title">Senior Community Director — WeWork</div>
+    </div>
+
+    <div class="ref-card">
+      <p class="ref-quote">Regardless of the role, Danielle is always reliable, efficient, and detail oriented. She goes above and beyond every single day and often volunteers to work additional hours to ensure we meet deadlines.</p>
+      <div class="ref-person">Megan Johnson</div>
+      <div class="ref-title">Director — Carolina Union Marketing & Design</div>
+    </div>
+
+    <div class="ref-card">
+      <p class="ref-quote">Danielle's unique combination of marketing acumen and graphic design skills made her a valuable asset to our team.</p>
+      <div class="ref-person">Pamela Becker</div>
+      <div class="ref-title">VP Communications — ironSource</div>
+    </div>
+
+    <div class="ref-card">
+      <p class="ref-quote">There is truly nothing Danielle cannot do — she is the definition of "jack of all trades," from producing professional and enticing content to remodeling an entire website on her own.</p>
+      <div class="ref-person">Gili Lichtman</div>
+      <div class="ref-title">Co-founder & VP Marketing — FairFly</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-header" style="justify-content: center; margin-bottom: 0;">
+    <span class="section-num" style="color: rgba(255,255,255,0.3);">04</span>
+    <h2 style="color: var(--warm-white);">Let's Work Together</h2>
+  </div>
+  <p class="contact-sub">Looking for an internal events producer who brings creative vision, operational rigor, and genuine heart? Let's talk.</p>
+  <a href="mailto:hello@daniellefrider.com" class="contact-email">hello@daniellefrider.com</a>
+  <div class="contact-links">
+    <a href="https://twitter.com/DanielleFrider" target="_blank" class="contact-link">Twitter / X</a>
+    <a href="https://www.linkedin.com/in/daniellefrider" target="_blank" class="contact-link">LinkedIn</a>
+    <a href="#portfolio" class="contact-link">Portfolio</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Danielle Frider</span>
+  <span>San Francisco, CA</span>
+</footer>
+
+</body>
+</html>
