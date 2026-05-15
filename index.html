@@ -9,15 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --white: #FFFFFF;
-    --off-white: #F7F6F4;
-    --light-grey: #E8E8E8;
-    --mid-grey: #999999;
-    --dark-grey: #444444;
-    --ink: #111110;
+    --cream: #F2EDE6;
+    --warm-white: #FAF8F5;
+    --ink: #0E0D0C;
+    --ink-muted: #4A4540;
+    --ink-faint: #A09890;
     --accent: #C0202E;
+    --accent-light: #F5E0E4;
+    --blush: #E8D5D0;
     --border: rgba(14,13,12,0.10);
-    --nav-h: 68px;
+    --nav-h: 72px;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,7 +26,7 @@
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--white);
+    background: var(--warm-white);
     color: var(--ink);
     font-size: 16px;
     line-height: 1.7;
@@ -38,31 +39,30 @@
     height: var(--nav-h);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5vw;
-    background: rgba(255,255,255,0.96);
+    background: rgba(250,248,245,0.93);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--light-grey);
+    border-bottom: 0.5px solid var(--border);
   }
 
   .nav-logo {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
     color: var(--ink);
     text-decoration: none;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
   }
 
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a {
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    font-size: 12px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--mid-grey);
+    color: var(--ink-muted);
     text-decoration: none;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover { color: var(--accent); }
 
   /* ── HERO ── */
   #hero {
@@ -70,78 +70,80 @@
     padding-top: var(--nav-h);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: stretch;
+    align-items: center;
   }
 
-  .hero-left {
-    padding: 8vw 5vw 8vw 8vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-right: 1px solid var(--light-grey);
-  }
+  .hero-left { padding: 6vw 4vw 6vw 8vw; }
 
   .hero-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.2em;
+    font-size: 11px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--accent);
   }
 
   h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(44px, 5.5vw, 76px);
-    font-weight: 400;
-    line-height: 1.05;
+    font-size: clamp(40px, 5vw, 68px);
+    font-weight: 600;
+    line-height: 1.08;
     letter-spacing: -0.02em;
+    margin-bottom: 12px;
   }
-  h1 em { font-style: italic; }
+  h1 em { font-style: italic; color: var(--accent); }
 
   .hero-sub {
-    font-size: 15px;
-    color: var(--mid-grey);
-    font-weight: 400;
-    max-width: 400px;
-    margin: 32px 0 48px;
-    line-height: 1.75;
+    font-size: 17px;
+    color: var(--ink-muted);
+    font-weight: 300;
+    max-width: 420px;
+    margin: 24px 0 40px;
+    line-height: 1.65;
   }
 
-  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
   .btn-primary {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 13px 26px;
+    padding: 14px 28px;
     background: var(--ink);
-    color: var(--white);
+    color: var(--warm-white);
     text-decoration: none;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    border: 1px solid var(--ink);
-    transition: background 0.2s, border-color 0.2s;
+    transition: background 0.2s, transform 0.15s;
   }
-  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
 
   .btn-ghost {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 26px;
-    border: 1px solid var(--light-grey);
-    color: var(--dark-grey);
+    padding: 13px 28px;
+    border: 1px solid var(--border);
+    color: var(--ink-muted);
     text-decoration: none;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     transition: border-color 0.2s, color 0.2s;
   }
-  .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
   .hero-right {
     position: relative;
+    height: 100vh;
     overflow: hidden;
-    min-height: 100vh;
+    display: flex; align-items: flex-end;
   }
 
   .hero-right-bg {
@@ -149,17 +151,17 @@
     background-image: url('event-hero.jpg');
     background-size: cover;
     background-position: center 30%;
-    filter: brightness(0.45) saturate(0.7);
+    filter: brightness(0.45) saturate(0.75);
   }
 
   .hero-gradient {
     position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.05) 55%, transparent 100%);
+    background: linear-gradient(to top, rgba(14,13,12,0.85) 0%, rgba(14,13,12,0.05) 55%, transparent 100%);
   }
 
   .hero-stats {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
+    position: relative;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -173,128 +175,124 @@
 
   .stat-num {
     font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
+    font-size: 38px;
+    font-weight: 600;
     color: #fff;
     line-height: 1;
   }
   .stat-label {
-    font-size: 10px;
-    letter-spacing: 0.12em;
+    font-size: 11px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.45);
     margin-top: 6px;
   }
 
-  /* ── ABOUT ── */
-  #about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 640px;
+  /* ── SECTIONS ── */
+  section { padding: 100px 8vw; }
+  section:nth-child(even) { background: var(--cream); }
+
+  .section-header {
+    display: flex; align-items: baseline; gap: 20px;
+    margin-bottom: 64px;
   }
 
-  .about-image {
-    overflow: hidden;
-    background: var(--off-white);
-  }
-  .about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-    filter: grayscale(10%) contrast(1.04);
-  }
-
-  .about-content {
-    padding: 100px 8vw 100px 6vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--off-white);
-    border-left: 1px solid var(--light-grey);
-  }
-
-  .section-label {
-    font-size: 10px;
-    letter-spacing: 0.2em;
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
     text-transform: uppercase;
-    color: var(--mid-grey);
-    margin-bottom: 20px;
-    display: flex; align-items: center; gap: 14px;
-  }
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 24px; height: 1px;
-    background: var(--mid-grey);
   }
 
   h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(30px, 3.5vw, 48px);
-    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 600;
     line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 36px;
+    letter-spacing: -0.01em;
   }
-  h2 em { font-style: italic; }
 
-  .about-content p {
-    color: var(--dark-grey);
-    margin-bottom: 18px;
-    font-size: 15px;
-    line-height: 1.8;
+  /* ── ABOUT ── */
+  #about .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-portrait { position: relative; }
+  .about-portrait img {
+    width: 100%;
+    display: block;
+    filter: sepia(10%) contrast(1.05);
+  }
+  .about-portrait::after {
+    content: '';
+    position: absolute;
+    bottom: -16px; right: -16px;
+    width: 60%; height: 60%;
+    border: 1.5px solid var(--accent);
+    z-index: -1;
+  }
+
+  .about-text p {
+    color: var(--ink-muted);
+    margin-bottom: 24px;
+    font-size: 17px;
+    line-height: 1.75;
   }
 
   .about-pills {
-    display: flex; flex-wrap: wrap; gap: 8px;
+    display: flex; flex-wrap: wrap; gap: 10px;
     margin-top: 36px;
   }
   .pill {
-    padding: 5px 14px;
-    border: 1px solid var(--light-grey);
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    font-size: 12px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--dark-grey);
-    background: var(--white);
+    color: var(--ink-muted);
   }
 
   /* ── PORTFOLIO ── */
-  #portfolio { padding: 100px 8vw; background: var(--white); }
-
-  .portfolio-header {
-    display: flex; align-items: flex-end; justify-content: space-between;
-    margin-bottom: 48px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--light-grey);
-  }
-
-  .portfolio-grid {
+  #portfolio .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--light-grey);
-    border: 1px solid var(--light-grey);
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2px;
   }
 
   /* ── CAROUSEL CARD ── */
   .work-card {
-    background: var(--white);
+    position: relative;
+    background: var(--warm-white);
+    border: 0.5px solid var(--border);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     transition: background 0.2s;
   }
-  .work-card:hover { background: var(--off-white); }
+  .work-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.25s ease;
+    z-index: 1;
+  }
+  .work-card:hover { background: var(--cream); }
+  .work-card:hover::before { transform: scaleY(1); }
 
   .card-carousel {
     position: relative;
     width: 100%;
     height: 190px;
     overflow: hidden;
-    background: var(--light-grey);
+    background: var(--blush);
     flex-shrink: 0;
   }
 
@@ -305,16 +303,11 @@
     will-change: transform;
   }
 
-  .carousel-slide {
-    flex: 0 0 100%;
-    height: 100%;
-  }
+  .carousel-slide { flex: 0 0 100%; height: 100%; }
   .carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: saturate(0.85);
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    filter: saturate(0.88);
     transition: filter 0.3s;
   }
   .work-card:hover .carousel-slide img { filter: saturate(1); }
@@ -322,12 +315,12 @@
   .carousel-btn {
     position: absolute;
     top: 50%; transform: translateY(-50%);
-    background: rgba(0,0,0,0.4);
+    background: rgba(14,13,12,0.45);
     color: #fff;
     border: none;
     width: 30px; height: 30px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
     display: flex; align-items: center; justify-content: center;
     opacity: 0;
     transition: opacity 0.2s;
@@ -349,15 +342,14 @@
   .carousel-dot {
     width: 5px; height: 5px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.4);
-    cursor: pointer;
-    border: none; padding: 0;
+    background: rgba(255,255,255,0.45);
+    cursor: pointer; border: none; padding: 0;
     transition: background 0.2s, transform 0.2s;
   }
   .carousel-dot.active { background: #fff; transform: scale(1.3); }
 
   .card-body {
-    padding: 24px 24px 20px;
+    padding: 28px 28px 24px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -367,173 +359,140 @@
 
   .work-card-meta {
     display: flex; align-items: center; gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
   }
   .work-tag {
-    font-size: 9px;
-    letter-spacing: 0.16em;
+    font-size: 10px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
     font-weight: 500;
   }
-  .work-date { font-size: 10px; color: var(--mid-grey); }
+  .work-date { font-size: 11px; color: var(--ink-faint); }
 
   .work-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.3;
-    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 12px;
   }
 
   .work-card p {
-    font-size: 13px;
-    color: var(--mid-grey);
+    font-size: 14px;
+    color: var(--ink-muted);
     line-height: 1.65;
     flex: 1;
   }
 
   .work-card-arrow {
-    margin-top: 16px;
-    font-size: 10px;
-    letter-spacing: 0.12em;
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--mid-grey);
+    color: var(--ink-faint);
     display: flex; align-items: center; gap: 8px;
     transition: color 0.2s, gap 0.2s;
   }
-  .work-card:hover .work-card-arrow { color: var(--ink); gap: 14px; }
+  .work-card:hover .work-card-arrow { color: var(--accent); gap: 14px; }
 
   /* ── REFERENCES ── */
-  #references {
-    background: var(--ink);
-    color: var(--white);
-    padding: 100px 8vw;
-  }
-  #references .section-label { color: rgba(255,255,255,0.3); }
-  #references .section-label::before { background: rgba(255,255,255,0.2); }
-  #references h2 { color: var(--white); margin-bottom: 56px; }
-
-  .refs-grid {
+  #references .refs-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.07);
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
   }
 
   .ref-card {
-    background: var(--ink);
-    padding: 36px 28px;
-    transition: background 0.2s;
+    padding: 36px;
+    border-top: 1.5px solid var(--ink);
   }
-  .ref-card:hover { background: #1c1b19; }
 
   .ref-quote {
     font-family: Georgia, 'Times New Roman', serif;
     font-style: italic;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.78);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
     margin-bottom: 24px;
   }
   .ref-quote::before { content: '\201C'; }
   .ref-quote::after  { content: '\201D'; }
 
-  .ref-person {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--white);
-    letter-spacing: 0.04em;
-  }
-  .ref-title { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 4px; }
+  .ref-person { font-size: 13px; font-weight: 500; color: var(--ink); letter-spacing: 0.03em; }
+  .ref-title { font-size: 12px; color: var(--ink-faint); margin-top: 4px; }
 
   /* ── CONTACT ── */
   #contact {
-    background: var(--white);
+    background: var(--ink);
+    color: var(--warm-white);
+    text-align: center;
     padding: 120px 8vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    border-top: 1px solid var(--light-grey);
   }
+  #contact h2 { color: var(--warm-white); }
+  #contact .section-num { color: rgba(255,255,255,0.3); }
 
-  .contact-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 4vw, 60px);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin-top: 20px;
+  .contact-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    max-width: 480px;
+    margin: 24px auto 48px;
+    font-weight: 300;
   }
-
-  .contact-right { display: flex; flex-direction: column; gap: 28px; }
-
-  .contact-sub { font-size: 15px; color: var(--mid-grey); line-height: 1.75; }
 
   .contact-email {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(18px, 2vw, 26px);
-    color: var(--ink);
+    font-size: clamp(22px, 3vw, 36px);
+    color: var(--warm-white);
     text-decoration: none;
-    border-bottom: 1px solid var(--light-grey);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
     padding-bottom: 4px;
-    display: inline-block;
     transition: border-color 0.2s, color 0.2s;
   }
-  .contact-email:hover { color: var(--accent); border-color: var(--accent); }
+  .contact-email:hover { color: var(--accent-light); border-color: var(--accent); }
 
-  .contact-links { display: flex; gap: 24px; }
+  .contact-links {
+    margin-top: 48px;
+    display: flex; justify-content: center; gap: 24px;
+  }
   .contact-link {
-    font-size: 10px;
-    letter-spacing: 0.14em;
+    font-size: 12px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--mid-grey);
+    color: rgba(255,255,255,0.4);
     text-decoration: none;
     transition: color 0.2s;
   }
-  .contact-link:hover { color: var(--ink); }
+  .contact-link:hover { color: var(--warm-white); }
 
   /* ── FOOTER ── */
   footer {
-    background: var(--off-white);
-    border-top: 1px solid var(--light-grey);
+    background: var(--ink);
+    border-top: 0.5px solid rgba(255,255,255,0.08);
     padding: 24px 8vw;
     display: flex; justify-content: space-between; align-items: center;
-    color: var(--mid-grey);
-    font-size: 11px;
-    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.25);
+    font-size: 12px;
   }
 
   /* ── HAMBURGER ── */
   .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
-  .ham span { display: block; width: 22px; height: 1px; background: var(--ink); }
+  .ham span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: all 0.2s; }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 960px) {
-    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-    .refs-grid { grid-template-columns: 1fr 1fr; }
-  }
   @media (max-width: 860px) {
     #hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 48px 6vw 40px; border-right: none; border-bottom: 1px solid var(--light-grey); }
-    .hero-right { min-height: 360px; }
-    .hero-stats { position: relative; }
+    .hero-left { padding: 48px 6vw 40px; }
+    .hero-right { height: 320px; }
     .stat-num { font-size: 28px; }
-    #about { grid-template-columns: 1fr; }
-    .about-image { min-height: 320px; }
-    .about-content { padding: 60px 6vw; border-left: none; border-top: 1px solid var(--light-grey); }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .portfolio-header { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .refs-grid { grid-template-columns: 1fr; }
-    #contact { grid-template-columns: 1fr; gap: 40px; padding: 72px 6vw; }
-    section { padding: 72px 6vw; }
+    #about .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-portrait::after { display: none; }
+    #references .refs-list { grid-template-columns: 1fr; gap: 24px; }
     .ham { display: flex; }
-    .nav-links { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--white); flex-direction: column; gap: 0; border-bottom: 1px solid var(--light-grey); }
+    .nav-links { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--warm-white); flex-direction: column; gap: 0; border-bottom: 1px solid var(--border); }
     .nav-links.open { display: flex; }
-    .nav-links li a { display: block; padding: 18px 6vw; border-bottom: 1px solid var(--light-grey); }
+    .nav-links li a { display: block; padding: 18px 6vw; border-bottom: 0.5px solid var(--border); }
+    section { padding: 72px 6vw; }
   }
 </style>
 </head>
@@ -590,37 +549,37 @@
 
 <!-- ── ABOUT ── -->
 <section id="about">
-  <div class="about-image">
-    <img src="headshot.jpg" alt="Danielle Frider speaking on stage">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>About</h2>
   </div>
-  <div class="about-content">
-    <p class="section-label">About</p>
-    <h2>Hi, I'm<br><em>Danielle.</em></h2>
-    <p>A marketer, designer, historian, and quiet observer of the universe.</p>
-    <p>I grew up between Southern California and North Carolina. Today, I reside in not-so-sunny San Francisco. (I still say y'all.) I've lived in both Paris and Tel Aviv, and I travel as often as I can.</p>
-    <p>Over my career I've shaped employer brands, launched careers sites, produced events with thousands of attendees, and built communications programs at some of the most interesting companies in tech — Airtable, Sony, Samsara, WeWork, Marqeta, and more.</p>
-    <p>Other interests include interior design, vintage cars, typography, cloud watching, and stargazing.</p>
-    <div class="about-pills">
-      <span class="pill">Internal Comms</span>
-      <span class="pill">Events</span>
-      <span class="pill">Employer Brand</span>
-      <span class="pill">Content Strategy</span>
-      <span class="pill">Graphic Design</span>
-      <span class="pill">Copywriting</span>
+  <div class="about-grid">
+    <div class="about-portrait">
+      <img src="headshot.jpg" alt="Danielle Frider speaking on stage">
+    </div>
+    <div class="about-text">
+      <p>Hi, I'm Danielle — a marketer, designer, historian, and quiet observer of the universe.</p>
+      <p>I grew up between Southern California and North Carolina. Today, I reside in not-so-sunny San Francisco. (I still say y'all.) I've lived in both Paris and Tel Aviv, and I travel as often as I can.</p>
+      <p>Over my career I've shaped employer brands, launched careers sites, produced events with thousands of attendees, and built communications programs at some of the most interesting companies in tech — Airtable, Sony, Samsara, WeWork, Marqeta, and more.</p>
+      <p>Other interests include interior design, vintage cars, typography, cloud watching, and stargazing.</p>
+      <div class="about-pills">
+        <span class="pill">Internal Comms</span>
+        <span class="pill">Events</span>
+        <span class="pill">Employer Brand</span>
+        <span class="pill">Content Strategy</span>
+        <span class="pill">Graphic Design</span>
+        <span class="pill">Copywriting</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ── PORTFOLIO ── -->
 <section id="portfolio">
-  <div class="portfolio-header">
-    <div>
-      <p class="section-label">Selected Work</p>
-      <h2>Portfolio</h2>
-    </div>
-    <p style="font-size:13px; color:var(--mid-grey); max-width:260px; text-align:right; line-height:1.6;">A decade of events, brand, and communications work across tech's most interesting companies.</p>
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>Portfolio</h2>
   </div>
-
   <div class="portfolio-grid">
 
     <!-- Card 1: Built In — 2 slides -->
@@ -662,7 +621,7 @@
     <div class="work-card">
       <div class="card-carousel single" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://images.ctfassets.net/wqi8u1luxsv0/4wbVcu9zpZRAqScXSG5ga9/9072ed8c348819071e6b72fb6a8536be/Flexible-First-Policy-Blog.jpeg?w=800" alt="Flexible First Policy"></div>
+          <div class="carousel-slide"><img src="https://images.ctfassets.net/wqi8u1luxsv0/4wbVcu9zpZRAqScXSG5ga9/9072ed8c348819071e6b72fb6a8536be/Flexible-First-Policy-Blog.jpeg?w=800" alt="Flexible First"></div>
         </div>
         <div class="carousel-nav"></div>
       </div>
@@ -797,7 +756,7 @@
     <div class="work-card">
       <div class="card-carousel single" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_7bc5305cdabe4b468452b3819561a77a~mv2.jpeg/v1/fill/w_800,h_413,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg" alt="Samsara Dev Spotlight"></div>
+          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_7bc5305cdabe4b468452b3819561a77a~mv2.jpeg/v1/fill/w_800,h_413,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg" alt="Dev Spotlight"></div>
         </div>
         <div class="carousel-nav"></div>
       </div>
@@ -830,9 +789,11 @@
 
 <!-- ── REFERENCES ── -->
 <section id="references">
-  <p class="section-label">What People Say</p>
-  <h2>References</h2>
-  <div class="refs-grid">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>References</h2>
+  </div>
+  <div class="refs-list">
     <div class="ref-card">
       <p class="ref-quote">Danielle has an unwavering commitment to excellence; she creates and innovates in ambiguity. Her expertise was integral for a scaling company moving towards a remote, global culture. Danielle would be a value-add to any organization seeking to achieve notable brand success.</p>
       <div class="ref-person">Stephanie Baysinger</div>
@@ -868,18 +829,16 @@
 
 <!-- ── CONTACT ── -->
 <section id="contact">
-  <div class="contact-left">
-    <p class="section-label">Get in Touch</p>
-    <h2 class="contact-headline">Let's<br><em>talk.</em></h2>
+  <div class="section-header" style="justify-content:center; margin-bottom:0;">
+    <span class="section-num" style="color:rgba(255,255,255,0.3);">04</span>
+    <h2 style="color:var(--warm-white);">Let's Work Together</h2>
   </div>
-  <div class="contact-right">
-    <p class="contact-sub">Looking for an internal events producer who brings creative vision, operational rigor, and genuine heart? Let's talk.</p>
-    <a href="mailto:frider.danielle@gmail.com" class="contact-email">frider.danielle@gmail.com</a>
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/dfrider/" target="_blank" class="contact-link">LinkedIn</a>
-      <a href="https://twitter.com/DanielleFrider" target="_blank" class="contact-link">Twitter / X</a>
-      <a href="#portfolio" class="contact-link">Portfolio</a>
-    </div>
+  <p class="contact-sub">Looking for an internal events producer who brings creative vision, operational rigor, and genuine heart? Let's talk.</p>
+  <a href="mailto:frider.danielle@gmail.com" class="contact-email">frider.danielle@gmail.com</a>
+  <div class="contact-links">
+    <a href="https://www.linkedin.com/in/dfrider/" target="_blank" class="contact-link">LinkedIn</a>
+    <a href="https://twitter.com/DanielleFrider" target="_blank" class="contact-link">Twitter / X</a>
+    <a href="#portfolio" class="contact-link">Portfolio</a>
   </div>
 </section>
 
