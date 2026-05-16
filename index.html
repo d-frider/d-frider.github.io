@@ -424,7 +424,7 @@
 
   /* ── CONTACT ── */
   #contact {
-    background: var(--warm-white);
+    background: var(--cream);
     padding: 120px 8vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -437,7 +437,7 @@
     font-size: 10px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ink-faint);
+    color: var(--ink-muted);
     margin-bottom: 20px;
   }
 
@@ -465,7 +465,7 @@
     font-size: clamp(18px, 2.2vw, 28px);
     color: var(--ink);
     text-decoration: none;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(14,13,12,0.2);
     padding-bottom: 4px;
     display: inline-block;
     transition: border-color 0.2s, color 0.2s;
@@ -477,7 +477,7 @@
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--ink-faint);
+    color: var(--ink-muted);
     text-decoration: none;
     transition: color 0.2s;
   }
@@ -486,6 +486,7 @@
   /* ── FOOTER ── */
   footer {
     background: var(--ink);
+    border-top: 0.5px solid rgba(255,255,255,0.08);
     padding: 24px 8vw;
     display: flex; justify-content: space-between; align-items: center;
     color: rgba(255,255,255,0.25);
@@ -600,115 +601,195 @@
   </div>
   <div class="portfolio-grid">
 
-    <!-- Card 1: Built In — 2 slides -->
+    <!-- Card 1: VP+ Summit Mexico City -->
     <div class="work-card">
       <div class="card-carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://images.ctfassets.net/wqi8u1luxsv0/ruknG3nD8ekzOGdqiEKKF/908eb096204a0580d9ff246d76c35fee/MQTUS310-Built-In-Awards_Social-B-scaled.jpeg?w=800" alt="Built In Award"></div>
-          <div class="carousel-slide"><img src="https://images.ctfassets.net/wqi8u1luxsv0/Lmb4U3vdAI6kCMRAbKlu0/dc806ef969953af4652f3c8f206f644f/Afrotech_2022.png?w=800" alt="Marqeta team"></div>
+          <div class="carousel-slide"><img src="portfolio/vp-summit-mexico/IMG_6225.jpg" alt="VP+ Summit Mexico City"></div>
+          <div class="carousel-slide"><img src="portfolio/vp-summit-mexico/FAM_8119-184.jpg" alt="VP+ Summit Mexico City"></div>
+          <div class="carousel-slide"><img src="portfolio/vp-summit-mexico/FAM_7549-276.jpg" alt="VP+ Summit Mexico City"></div>
+          <div class="carousel-slide"><img src="portfolio/vp-summit-mexico/FAM_6433-43.jpg" alt="VP+ Summit Mexico City"></div>
+          <div class="carousel-slide"><img src="portfolio/vp-summit-mexico/FAM_8296-262.jpg" alt="VP+ Summit Mexico City"></div>
         </div>
         <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
         <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
         <div class="carousel-nav"></div>
       </div>
-      <a href="https://www.marqeta.com/blog/built-in-best-places-to-work" target="_blank" class="card-body">
-        <div class="work-card-meta"><span class="work-tag">Employer Brand</span><span class="work-date">Jan 2023</span></div>
-        <h3>Built In Best Places to Work — 4 Lists</h3>
-        <p>Earned Marqeta placements including #1 SF Best Midsize Places to Work, #2 SF Best Places to Work, and top-10 nationally.</p>
-        <div class="work-card-arrow">Read more →</div>
-      </a>
-    </div>
-
-    <!-- Card 2: AfroTech -->
-    <div class="work-card">
-      <div class="card-carousel single" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://images.ctfassets.net/wqi8u1luxsv0/Lmb4U3vdAI6kCMRAbKlu0/dc806ef969953af4652f3c8f206f644f/Afrotech_2022.png?w=800" alt="AfroTech 2022"></div>
-        </div>
-        <div class="carousel-nav"></div>
+      <div class="card-body">
+        <div class="work-card-meta"><span class="work-tag">Events</span><span class="work-date">Apr 2026</span></div>
+        <h3>VP+ Summit — Mexico City</h3>
+        <p>Produced a week-long global event designed to blend strategic leadership conversations with immersive local culture experiences. 7-figure budget and 10+ vendors managed.</p>
+        <div class="work-card-arrow">View project →</div>
       </div>
-      <a href="https://www.marqeta.com/blog/afrotech-2022" target="_blank" class="card-body">
-        <div class="work-card-meta"><span class="work-tag">Events + DEI</span><span class="work-date">Nov 2022</span></div>
-        <h3>Marqeta at AfroTech — 6 Years Strong</h3>
-        <p>Chronicled Marqeta's six-year commitment to the premier tech and wealth-building platform for the Black community.</p>
-        <div class="work-card-arrow">Read more →</div>
-      </a>
     </div>
 
-    <!-- Card 3: Flexible First -->
-    <div class="work-card">
-      <div class="card-carousel single" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://images.ctfassets.net/wqi8u1luxsv0/4wbVcu9zpZRAqScXSG5ga9/9072ed8c348819071e6b72fb6a8536be/Flexible-First-Policy-Blog.jpeg?w=800" alt="Flexible First"></div>
-        </div>
-        <div class="carousel-nav"></div>
-      </div>
-      <a href="https://www.marqeta.com/blog/flexible-first" target="_blank" class="card-body">
-        <div class="work-card-meta"><span class="work-tag">Internal Comms</span><span class="work-date">May 2022</span></div>
-        <h3>Marqeta's Flexible First Future of Work</h3>
-        <p>Communicated Marqeta's new hybrid work policy company-wide, centering employee autonomy and work-life balance.</p>
-        <div class="work-card-arrow">Read more →</div>
-      </a>
-    </div>
-
-    <!-- Card 4: Samsara Careers — 3 slides -->
+    <!-- Card 2: Crunchyroll All Staff Meetings -->
     <div class="work-card">
       <div class="card-carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_6fe11b6fbb744e1fbc306766f5baf5fc~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Samsara Careers"></div>
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_7bc5305cdabe4b468452b3819561a77a~mv2.jpeg/v1/fill/w_800,h_413,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg" alt="Samsara team"></div>
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_2f84cd36edb24d0b87a31b0826c5988f~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Samsara Kickoff"></div>
+          <div class="carousel-slide"><img src="portfolio/crunchyroll-all-staff/1750785086606.jpeg" alt="Crunchyroll All Staff Meeting"></div>
+          <div class="carousel-slide"><img src="portfolio/crunchyroll-all-staff/IMG_7984.jpg" alt="Crunchyroll All Staff Meeting"></div>
+          <div class="carousel-slide"><img src="portfolio/crunchyroll-all-staff/1760058075277.jpeg" alt="Crunchyroll All Staff Meeting"></div>
+          <div class="carousel-slide"><img src="portfolio/crunchyroll-all-staff/IMG_0988.jpg" alt="Crunchyroll All Staff Meeting"></div>
         </div>
         <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
         <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-nav"></div>
+      </div>
+      <div class="card-body">
+        <div class="work-card-meta"><span class="work-tag">Internal Events</span><span class="work-date">Apr 2026</span></div>
+        <h3>Crunchyroll All Staff Meetings</h3>
+        <p>Produced 30+ major all-company events at Crunchyroll, livestreamed to a global audience of 2,000+ employees or coordinated live across 14 offices in 9 countries.</p>
+        <div class="work-card-arrow">View project →</div>
+      </div>
+    </div>
+
+    <!-- Card 3: Valentine's Day Press Event -->
+    <div class="work-card">
+      <div class="card-carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="portfolio/vday-press-event/VDAY_PRESS_EVENT_15333.jpg" alt="Valentine's Day Press Event"></div>
+          <div class="carousel-slide"><img src="portfolio/vday-press-event/VDAY_PRESS_EVENT_15327.jpg" alt="Valentine's Day Press Event"></div>
+          <div class="carousel-slide"><img src="portfolio/vday-press-event/VDAY_PRESS_EVENT_15315.jpg" alt="Valentine's Day Press Event"></div>
+          <div class="carousel-slide"><img src="portfolio/vday-press-event/VDAY_PRESS_EVENT_15357.jpg" alt="Valentine's Day Press Event"></div>
+          <div class="carousel-slide"><img src="portfolio/vday-press-event/VDAY_PRESS_EVENT_15343.jpg" alt="Valentine's Day Press Event"></div>
+          <div class="carousel-slide"><img src="portfolio/vday-press-event/VDAY_PRESS_EVENT_15341.jpg" alt="Valentine's Day Press Event"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-nav"></div>
+      </div>
+      <div class="card-body">
+        <div class="work-card-meta"><span class="work-tag">Events + PR</span><span class="work-date">Feb 2026</span></div>
+        <h3>Valentine's Day Press & Influencer Event</h3>
+        <p>Partnered with Brand Management and PR teams to bring together an exclusive screening, press junket, and brand activation moment at the Delphi in Downtown LA.</p>
+        <div class="work-card-arrow">View project →</div>
+      </div>
+    </div>
+
+    <!-- Card 4: Crunchyroll Global Hackathon -->
+    <div class="work-card">
+      <div class="card-carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="portfolio/crunchyroll-hackathon/IMG_5379.jpg" alt="Crunchyroll Hackathon"></div>
+          <div class="carousel-slide"><img src="portfolio/crunchyroll-hackathon/IMG_5304.jpg" alt="Crunchyroll Hackathon"></div>
+          <div class="carousel-slide"><img src="portfolio/crunchyroll-hackathon/IMG_5307.jpg" alt="Crunchyroll Hackathon"></div>
+          <div class="carousel-slide"><img src="portfolio/crunchyroll-hackathon/A7_00348.jpg" alt="Crunchyroll Hackathon"></div>
+          <div class="carousel-slide"><img src="portfolio/crunchyroll-hackathon/A7_01043.jpg" alt="Crunchyroll Hackathon"></div>
+          <div class="carousel-slide"><img src="portfolio/crunchyroll-hackathon/A7_00995.jpg" alt="Crunchyroll Hackathon"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-nav"></div>
+      </div>
+      <div class="card-body">
+        <div class="work-card-meta"><span class="work-tag">Internal Events</span><span class="work-date">Nov 2025</span></div>
+        <h3>Crunchyroll Global Hackathon — Los Angeles</h3>
+        <p>3-day internal event where winners were granted a 6-figure prize for coding an idea implemented into the Crunchyroll product. 2 sponsors, 10 teams, a demo day livestream, and a 400+ person celebration.</p>
+        <div class="work-card-arrow">View project →</div>
+      </div>
+    </div>
+
+    <!-- Card 5: VP+ Summit LA -->
+    <div class="work-card">
+      <div class="card-carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="portfolio/vp-summit-la/A7_01536.jpg" alt="VP+ Summit Los Angeles"></div>
+          <div class="carousel-slide"><img src="portfolio/vp-summit-la/A7_01562.jpg" alt="VP+ Summit Los Angeles"></div>
+          <div class="carousel-slide"><img src="portfolio/vp-summit-la/A7_00925.jpg" alt="VP+ Summit Los Angeles"></div>
+          <div class="carousel-slide"><img src="portfolio/vp-summit-la/A7_00993.jpg" alt="VP+ Summit Los Angeles"></div>
+          <div class="carousel-slide"><img src="portfolio/vp-summit-la/A7_01235.jpg" alt="VP+ Summit Los Angeles"></div>
+          <div class="carousel-slide"><img src="portfolio/vp-summit-la/A7_01074.jpg" alt="VP+ Summit Los Angeles"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-nav"></div>
+      </div>
+      <div class="card-body">
+        <div class="work-card-meta"><span class="work-tag">Events</span><span class="work-date">Nov 2024</span></div>
+        <h3>VP+ Summit — Los Angeles</h3>
+        <p>Produced a multi-day leadership summit in Culver City bringing together senior executives for strategic sessions and curated experiences.</p>
+        <div class="work-card-arrow">View project →</div>
+      </div>
+    </div>
+
+    <!-- Card 6: Contrary Fellowship -->
+    <div class="work-card">
+      <div class="card-carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="portfolio/contrary-fellowship/IMG_0791.jpg" alt="Contrary Fellowship"></div>
+          <div class="carousel-slide"><img src="portfolio/contrary-fellowship/Image_from_iOS_3.jpg" alt="Contrary Fellowship Conference"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-nav"></div>
+      </div>
+      <a href="https://applications.contrary.com/" target="_blank" class="card-body">
+        <div class="work-card-meta"><span class="work-tag">Events + Community</span><span class="work-date">Oct 2021</span></div>
+        <h3>Contrary's Fellowship Program & 3-Day Member Conference</h3>
+        <p>Planned a 250+ member in-person, 3-day conference, achieving an NPS of 95 and zero COVID cases reported afterward.</p>
+        <div class="work-card-arrow">Learn more →</div>
+      </a>
+    </div>
+
+    <!-- Card 7: Samsara Careers -->
+    <div class="work-card">
+      <div class="card-carousel single" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="portfolio/samsara-careers/samsara-careers-site.png" alt="Samsara Careers Site"></div>
+        </div>
         <div class="carousel-nav"></div>
       </div>
       <a href="https://www.samsara.com/careers" target="_blank" class="card-body">
         <div class="work-card-meta"><span class="work-tag">Brand Build</span><span class="work-date">Apr 2020</span></div>
-        <h3>Samsara Careers Site — Built from Scratch</h3>
-        <p>Partnered with the CEO and VP HR to define an EVP, directed photo and video shoots across four offices, and launched on Contentful.</p>
+        <h3>Samsara Careers Site</h3>
+        <p>Built an entirely new talent site and brand. Worked with the CEO and VP HR to define a new EVP. Coordinated photo and video shoots across four offices and launched on Contentful.</p>
         <div class="work-card-arrow">Visit site →</div>
       </a>
     </div>
 
-    <!-- Card 5: COVID Fleets -->
+    <!-- Card 8: Samsara Kickoff Video -->
     <div class="work-card">
       <div class="card-carousel single" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_fba3824485a34da486890736a56d0d99~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="COVID Fleets"></div>
-        </div>
-        <div class="carousel-nav"></div>
-      </div>
-      <a href="https://www.samsara.com/blog/tools-for-operating-fleets-during-covid-19" target="_blank" class="card-body">
-        <div class="work-card-meta"><span class="work-tag">Content</span><span class="work-date">Mar 2020</span></div>
-        <h3>Operating Fleets During COVID-19</h3>
-        <p>Fast-turn ghostwritten piece for a Sr. PMM. Top read on the Samsara blog for 6 weeks running — 6,200+ views.</p>
-        <div class="work-card-arrow">Read more →</div>
-      </a>
-    </div>
-
-    <!-- Card 6: Kickoff Video -->
-    <div class="work-card">
-      <div class="card-carousel single" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_2f84cd36edb24d0b87a31b0826c5988f~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Kickoff Video"></div>
+          <div class="carousel-slide"><img src="portfolio/samsara-kickoff/samsara-kickoff-video.png" alt="Samsara Kickoff Video"></div>
         </div>
         <div class="carousel-nav"></div>
       </div>
       <a href="https://vimeo.com/390562769" target="_blank" class="card-body">
         <div class="work-card-meta"><span class="work-tag">Events + Video</span><span class="work-date">Feb 2020</span></div>
-        <h3>Samsara 2020 Kickoff Celebration Video</h3>
-        <p>Repurposed event footage into an employee-shareable talent brand video. 2,700+ views, widely shared across personal networks.</p>
+        <h3>Samsara 2020 Kickoff Celebration</h3>
+        <p>Repurposed event footage into a talent brand video by writing copy and working with a freelance videographer. Dozens of employees shared it across personal networks — 2,700+ views.</p>
         <div class="work-card-arrow">Watch →</div>
       </a>
     </div>
 
-    <!-- Card 7: Shyp — 2 slides -->
+    <!-- Card 9: Airtable at VidCon -->
     <div class="work-card">
       <div class="card-carousel" data-index="0">
         <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_659fa920badb4a1397d6411481d878cd~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Shyp Event"></div>
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_1bdf7b88d4fd42da9837b4402a4d0025~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Shyp brand"></div>
+          <div class="carousel-slide"><img src="portfolio/airtable-vidcon/fortune-brainstorm-reinvent.png" alt="Airtable at VidCon"></div>
+          <div class="carousel-slide"><img src="portfolio/airtable-vidcon/D_Tdp43U4AAPDLO.jpeg" alt="Airtable at VidCon"></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
+        <div class="carousel-nav"></div>
+      </div>
+      <a href="https://www.youtube.com/watch?v=PkBSLMRDL5E" target="_blank" class="card-body">
+        <div class="work-card-meta"><span class="work-tag">Events + Sponsorship</span><span class="work-date">Jul 2019</span></div>
+        <h3>Airtable at VidCon 2019</h3>
+        <p>Negotiated conference sponsorship, sourced booth fabricator, designed 3 community activation spaces, and built custom conversation trackers for every attending employee.</p>
+        <div class="work-card-arrow">Watch recap →</div>
+      </a>
+    </div>
+
+    <!-- Card 10: Shipping the Future -->
+    <div class="work-card">
+      <div class="card-carousel" data-index="0">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="portfolio/shipping-the-future/DWm8j-iV4AAAHWB.jpg" alt="Shipping the Future Panel"></div>
+          <div class="carousel-slide"><img src="portfolio/shipping-the-future/DWm27uwUQAA70F0.jpeg" alt="Shipping the Future Panel"></div>
+          <div class="carousel-slide"><img src="portfolio/shipping-the-future/DWm3ktuUMAA7FqV.jpg" alt="Shipping the Future Panel"></div>
         </div>
         <button class="carousel-btn prev" onclick="moveCarousel(this,-1)">&#8249;</button>
         <button class="carousel-btn next" onclick="moveCarousel(this,1)">&#8250;</button>
@@ -716,89 +797,9 @@
       </div>
       <a href="https://www.eventbrite.com/e/shipping-the-future-building-a-direct-to-consumer-brand-registration-42657971140?aff=efbneb" target="_blank" class="card-body">
         <div class="work-card-meta"><span class="work-tag">Events</span><span class="work-date">Feb 2018</span></div>
-        <h3>Shipping the Future Panel Series — Shyp</h3>
-        <p>Organized a sold-out 250-ticket live panel. 100 in-person attendees plus 2,000+ livestream viewers for the first event in a three-part series.</p>
+        <h3>Shipping the Future: Building a Direct-to-Consumer Brand</h3>
+        <p>Organized a sold-out live panel — the first in a three-part series. 250 tickets sold, 100 in-person attendees, and 2,000+ watching via livestream.</p>
         <div class="work-card-arrow">View event →</div>
-      </a>
-    </div>
-
-    <!-- Card 8: Airtable Instagram -->
-    <div class="work-card">
-      <div class="card-carousel single" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_1bdf7b88d4fd42da9837b4402a4d0025~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Airtable Instagram"></div>
-        </div>
-        <div class="carousel-nav"></div>
-      </div>
-      <a href="https://www.instagram.com/airtable/?hl=en" target="_blank" class="card-body">
-        <div class="work-card-meta"><span class="work-tag">Social + Brand</span><span class="work-date">Jan 2019</span></div>
-        <h3>@airtable on Instagram — Launch & Growth</h3>
-        <p>Launched Airtable's Instagram presence from zero to 3,000 organic followers in 3 months. Used Stories and Highlights to showcase culture.</p>
-        <div class="work-card-arrow">View profile →</div>
-      </a>
-    </div>
-
-    <!-- Card 9: Contrary -->
-    <div class="work-card">
-      <div class="card-carousel single" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_0c419820b20640d38716372dbedd859b~mv2.jpeg/v1/fill/w_800,h_413,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg" alt="Contrary Fellowship"></div>
-        </div>
-        <div class="carousel-nav"></div>
-      </div>
-      <a href="https://applications.contrary.com/" target="_blank" class="card-body">
-        <div class="work-card-meta"><span class="work-tag">Program Leadership</span><span class="work-date">Oct 2021</span></div>
-        <h3>Contrary Fellowship Program</h3>
-        <p>Led the Fellowship for builders tinkering toward category-defining companies — an early-stage community and talent initiative.</p>
-        <div class="work-card-arrow">Learn more →</div>
-      </a>
-    </div>
-
-    <!-- Card 10: TBA Conference -->
-    <div class="work-card">
-      <div class="card-carousel single" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_58dc45ae512045f28cd9cb1610c16291~mv2.jpg/v1/fill/w_800,h_413,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg" alt="TBA Conference"></div>
-        </div>
-        <div class="carousel-nav"></div>
-      </div>
-      <a href="https://www.talentbrand.org/blog/2020/7/27/tools-tech-and-talent-brand" target="_blank" class="card-body">
-        <div class="work-card-meta"><span class="work-tag">Speaking + Content</span><span class="work-date">Jul 2020</span></div>
-        <h3>Tools, Tech & Talent Brand — TBA Conference</h3>
-        <p>Chronicled a session at the Talent Brand Alliance annual conference, within the employer branding and recruitment marketing space.</p>
-        <div class="work-card-arrow">Read more →</div>
-      </a>
-    </div>
-
-    <!-- Card 11: Dev Spotlights -->
-    <div class="work-card">
-      <div class="card-carousel single" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_7bc5305cdabe4b468452b3819561a77a~mv2.jpeg/v1/fill/w_800,h_413,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg" alt="Dev Spotlight"></div>
-        </div>
-        <div class="carousel-nav"></div>
-      </div>
-      <a href="https://medium.com/samsara-engineering/samsara-dev-spotlight-eileen-zhong-696bfe2c4e88" target="_blank" class="card-body">
-        <div class="work-card-meta"><span class="work-tag">Internal Comms</span><span class="work-date">Jan 2020</span></div>
-        <h3>Samsara Dev Spotlights Series</h3>
-        <p>Edited and shepherded a series of employee stories focused on how developers found Samsara and what they're building — in their own words.</p>
-        <div class="work-card-arrow">Read more →</div>
-      </a>
-    </div>
-
-    <!-- Card 12: Airtable Lifestyle -->
-    <div class="work-card">
-      <div class="card-carousel single" data-index="0">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="https://static.wixstatic.com/media/3734d3_1e893a6935bc4fc19bf148a594989337~mv2.png/v1/fill/w_800,h_413,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png" alt="Airtable Content"></div>
-        </div>
-        <div class="carousel-nav"></div>
-      </div>
-      <a href="https://blog.airtable.com/achieve-your-new-years-goals/" target="_blank" class="card-body">
-        <div class="work-card-meta"><span class="work-tag">Content</span><span class="work-date">Dec 2018</span></div>
-        <h3>Airtable Lifestyle Content Series</h3>
-        <p>Three-part series bringing casual users high-quality templates, built on a tentpole calendar co-created with an external PR agency.</p>
-        <div class="work-card-arrow">Read more →</div>
       </a>
     </div>
 
