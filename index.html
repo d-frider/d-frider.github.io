@@ -710,7 +710,7 @@
   async function loadPortfolio() {
     const grid = document.getElementById('portfolioGrid');
     try {
-      const url = `https://api.airtable.com/v0/${AT_BASE}/${encodeURIComponent(AT_TABLE)}?sort[0][field]=Date&sort[0][direction]=desc`;
+      const url = `https://api.airtable.com/v0/${AT_BASE}/${encodeURIComponent(AT_TABLE)}?view=Live%20Portfolio&sort[0][field]=Date&sort[0][direction]=desc`;
       const res = await fetch(url, {
         method: 'GET',
         headers: {
