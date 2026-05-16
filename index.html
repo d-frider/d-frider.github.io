@@ -747,7 +747,9 @@
     const description = fields['Event Description'] || '';
     const url         = (fields['URL'] || '').trim();
     const dateRaw     = fields['Date'] || '';
-    const photoNames  = (fields['Photo Names'] || '').split(',').map(s => s.trim()).filter(Boolean);
+    const photoNames  = Array.isArray(fields['Photo Names'])
+      ? fields['Photo Names']
+      : (fields['Photo Names'] || '').split(',').map(s => s.trim()).filter(Boolean);
     const attachments = fields['Photos'] || [];
 
     // Format date as "Mon YYYY"
