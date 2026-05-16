@@ -710,11 +710,22 @@
   async function loadPortfolio() {
     const grid = document.getElementById('portfolioGrid');
     try {
-      // Fetch all records sorted by Date descending
       const url = `https://api.airtable.com/v0/${AT_BASE}/${encodeURIComponent(AT_TABLE)}?sort[0][field]=Date&sort[0][direction]=desc`;
       const res = await fetch(url, {
-        headers: { Authorization: `Bearer ${AT_TOKEN}` }
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${AT_TOKEN}`,
+          'Content-Type': 'application/json'
+        }
       });
+
+      if (!res.ok) {
+        const errText = await res.text();
+        console.error('Airtable error response:', res.status, errText);
+        grid.innerHTML = `<div style="grid-column:1/-1;padding:60px;text-align:center;color:var(--ink-faint)">Error ${res.status}: ${errText}</div>`;
+        return;
+      }
+
       const data = await res.json();
 
       if (!data.records || data.records.length === 0) {
@@ -727,7 +738,7 @@
 
     } catch (err) {
       console.error('Airtable fetch error:', err);
-      grid.innerHTML = '<div style="grid-column:1/-1;padding:60px;text-align:center;color:var(--ink-faint)">Could not load portfolio.</div>';
+      grid.innerHTML = `<div style="grid-column:1/-1;padding:60px;text-align:center;color:var(--ink-faint)">Could not load portfolio: ${err.message}</div>`;
     }
   }
 
